@@ -1,0 +1,16 @@
+{
+  "name": "Les offres d'Oriane",
+  "short_name": "Offres",
+  "description": "Offres d'emploi en événementiel, communication et graphisme dans le sport et l'automobile.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#E8EBF1",
+  "theme_color": "#1D48C8",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
