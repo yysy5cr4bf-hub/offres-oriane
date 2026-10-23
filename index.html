@@ -6,8 +6,8 @@
 <title>Les offres d'Oriane</title>
 <meta name="description" content="Offres d'emploi en événementiel, communication et graphisme dans le sport et l'automobile.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#E8EBF1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0A0D13" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#EEF5FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07111F" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Offres">
@@ -20,26 +20,29 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Saira+Condensed:wght@600;700&display=swap">
 <style>
 /* Mise en page : une colonne de « pass d'accréditation » (720px max).
-   Chaque offre = un badge : bandeau couleur du secteur + fente de lanière, corps, pied avec code et suivi. */
+   Chaque offre = un badge : bandeau couleur du secteur + fente de lanière, corps, pied avec code et suivi.
+   Couleurs : celles d'Angers Lac de Maine Handball (rose #FF007A, bleu ciel #00A5E9, bleu #2B689C).
+   Les teintes vives ne servent qu'au décor ; textes et boutons utilisent des nuances au contraste ≥ 4,5:1. */
 :root {
-  --bg: #E8EBF1;
+  --bg: #EEF5FB;
   --surface: #FFFFFF;
-  --surface-2: #F3F5F9;
-  --ink: #10151E;
-  --muted: #586174;
-  --line: #D3D9E4;
-  --accent: #1D48C8;
+  --surface-2: #F2F7FC;
+  --ink: #0E2A47;
+  --muted: #4A6079;
+  --line: #D3E2F0;
+  --accent: #C2005F;
   --accent-ink: #FFFFFF;
-  --accent-soft: #E1E8FB;
-  --sport: #0B8457;
-  --auto: #CF2A2A;
-  --event: #6B40D6;
-  --band-ink: #FFFFFF;
-  --signal: #B36A00;
+  --accent-soft: #FFE3F0;
+  --pink-vivid: #FF007A;
+  --sky: #00A5E9;
+  --sport: #C2005F;   --sport-ink: #FFFFFF;
+  --auto: #2B689C;    --auto-ink: #FFFFFF;
+  --event: #00A5E9;   --event-ink: #0E2A47;
+  --signal: #A35A00;
   --signal-soft: #FCEDD2;
   --good: #157A4C;
   --good-soft: #DCF1E6;
-  --shadow: 0 1px 2px rgb(16 21 30 / .06), 0 10px 24px rgb(16 21 30 / .07);
+  --shadow: 0 1px 2px rgb(14 42 71 / .06), 0 10px 24px rgb(14 42 71 / .08);
   --display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
   --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -47,9 +50,12 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0A0D13; --surface: #141A25; --surface-2: #1A2130; --ink: #E8ECF4; --muted: #98A2B6;
-    --line: #283246; --accent: #85A5FF; --accent-ink: #0A1022; --accent-soft: #1B2748;
-    --sport: #2BBF89; --auto: #F2615C; --event: #A88BFF; --band-ink: #0A0D13;
+    --bg: #07111F; --surface: #0F1D30; --surface-2: #142540; --ink: #EAF2FA; --muted: #9DB2C8;
+    --line: #22385A; --accent: #FF5CA8; --accent-ink: #07111F; --accent-soft: #3A1027;
+    --pink-vivid: #FF3D94; --sky: #00A5E9;
+    --sport: #FF5CA8; --sport-ink: #07111F;
+    --auto: #6FB1E8;  --auto-ink: #07111F;
+    --event: #00A5E9; --event-ink: #07111F;
     --signal: #F2B44C; --signal-soft: #3A2B10; --good: #5FCB98; --good-soft: #12301F;
     --shadow: 0 1px 2px rgb(0 0 0 / .45), 0 12px 28px rgb(0 0 0 / .35);
     color-scheme: dark;
@@ -81,7 +87,13 @@ a { color: inherit; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 0; padding: 0; list-style: none; }
 .stats li { display: inline-flex; align-items: baseline; gap: 6px; padding: 7px 11px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; }
 .stats b { font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; }
-.stats .hot b { color: var(--signal); }
+.stats .hot b { color: var(--accent); }
+/* Liseré aux couleurs du club, purement décoratif */
+.club-stripe { display: flex; gap: 4px; margin: 2px 0 0; }
+.club-stripe i { display: block; height: 6px; border-radius: 3px; }
+.club-stripe i:nth-child(1) { width: 56px; background: var(--pink-vivid); }
+.club-stripe i:nth-child(2) { width: 32px; background: var(--sky); }
+.club-stripe i:nth-child(3) { width: 14px; background: var(--auto); }
 .updated { margin: 0; font: 500 12px/1.4 var(--mono); color: var(--muted); }
 
 /* Recherche, tri, filtres */
@@ -112,14 +124,14 @@ select {
 /* Pass */
 .list { display: flex; flex-direction: column; gap: 18px; }
 .pass {
-  --fam: var(--event);
+  --fam: var(--event); --fam-ink: var(--event-ink);
   position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 22px;
   box-shadow: var(--shadow); overflow: hidden; min-width: 0;
 }
-.pass[data-family="sport"] { --fam: var(--sport); }
-.pass[data-family="auto"] { --fam: var(--auto); }
+.pass[data-family="sport"] { --fam: var(--sport); --fam-ink: var(--sport-ink); }
+.pass[data-family="auto"] { --fam: var(--auto); --fam-ink: var(--auto-ink); }
 .band {
-  position: relative; background: var(--fam); color: var(--band-ink);
+  position: relative; background: var(--fam); color: var(--fam-ink);
   padding: 30px 18px 11px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px;
   font: 600 12px/1.1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
 }
@@ -131,7 +143,7 @@ select {
 .body { position: relative; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
 .new-tag {
   align-self: flex-start; margin: 0; padding: 5px 8px; border-radius: 7px;
-  background: var(--signal-soft); color: var(--signal); font: 600 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  background: var(--accent-soft); color: var(--accent); font: 600 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
 }
 .title { margin: 0; font: 700 29px/1 var(--display); text-transform: uppercase; letter-spacing: .005em; text-wrap: balance; padding-right: 8px; }
 .employer { margin: -4px 0 0; font-weight: 600; }
@@ -222,6 +234,7 @@ select {
   <header class="masthead">
     <p class="kicker">Pass emploi · Événementiel · Communication · Graphisme</p>
     <h1>Les offres d'Oriane</h1>
+    <p class="club-stripe" aria-hidden="true"><i></i><i></i><i></i></p>
     <ul class="stats" id="stats" aria-label="Résumé"></ul>
     <p class="updated" id="updated">Chargement…</p>
   </header>
